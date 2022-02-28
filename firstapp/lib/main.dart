@@ -1,6 +1,8 @@
 import 'package:firstapp/stack.dart';
+import 'package:firstapp/widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 import './stateful.dart';
+import 'listview.dart';
 import 'post_screen.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class OurApp extends StatelessWidget {
     return MaterialApp(
         title: "Our app",
         theme: ThemeData(primarySwatch: Colors.pink),
-        home: PostScreen()
+        home: PostsListView()
         //  OurHomepage(),
         );
   }

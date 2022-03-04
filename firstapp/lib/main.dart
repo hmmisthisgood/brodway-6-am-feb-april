@@ -3,6 +3,7 @@ import 'package:firstapp/stack.dart';
 import 'package:firstapp/widgets/post_widget.dart';
 import 'package:flutter/material.dart';
 import './stateful.dart';
+import 'bottom_nav_bar_screen.dart';
 import 'gridview.dart';
 import 'listview.dart';
 import 'post_screen.dart';
@@ -22,7 +23,7 @@ class OurApp extends StatelessWidget {
     return MaterialApp(
         title: "Our app",
         theme: ThemeData(primarySwatch: Colors.pink),
-        home: TabScreen()
+        home: DashboardScreen()
         //  OurHomepage(),
         );
   }

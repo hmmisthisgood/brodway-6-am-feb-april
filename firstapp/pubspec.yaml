@@ -29,6 +29,9 @@ dependencies:
   # Use with the CupertinoIcons class for iO style icons.
   cupertino_icons: ^1.0.2
 
+  animated_bottom_navigation_bar: ^0.3.2
+  curved_navigation_bar: ^1.0.3
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

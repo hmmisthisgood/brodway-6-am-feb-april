@@ -3,6 +3,7 @@ import 'package:firstapp/home_page.dart';
 import 'package:firstapp/post_screen.dart';
 import 'package:firstapp/stack.dart';
 import 'package:firstapp/stateful.dart';
+import 'package:firstapp/widgets/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'listview.dart';
@@ -34,6 +35,13 @@ class NavigationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Today we are navigating")),
       body: ListView(children: [
+        buildButton(
+          title: "Login  Screen",
+          whatToDoWhenPressed: (message) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => LoginScreen()));
+          },
+        ),
         buildButton(
           title: "Post screen",
           whatToDoWhenPressed: (message) {

@@ -29,9 +29,23 @@ dependencies:
   # Use with the CupertinoIcons class for iO style icons.
   cupertino_icons: ^1.0.2
 
+  #  ui stuff
   animated_bottom_navigation_bar: ^0.3.2
   curved_navigation_bar: ^1.0.3
-  
+
+  flutter_svg: 
+  flutter_vector_icons: 
+
+  # utils
+  form_field_validator: ^1.1.0
+
+  # http and network
+
+  # database
+
+  # state management
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,17 +83,22 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: MyIcons
+      fonts:
+        - asset: assets/fonts/MyIcons.ttf
+    
+    - family: Allura
+      fonts:
+        - asset: assets/fonts/Allura-Regular.ttf
+      
+    #     - asset: fonts/Schyler-Italic.ttf
+    #       style: italic
+    # - family: Trajan Pro
+    #   fonts:
+    #     - asset: fonts/TrajanPro.ttf
+    #     - asset: fonts/TrajanPro_Bold.ttf
+    #       weight: 700
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,5 +1,6 @@
 import 'package:firstapp/gridview.dart';
 import 'package:firstapp/home_page.dart';
+import 'package:firstapp/images_screen.dart';
 import 'package:firstapp/post_screen.dart';
 import 'package:firstapp/stack.dart';
 import 'package:firstapp/stateful.dart';
@@ -35,6 +36,13 @@ class NavigationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Today we are navigating")),
       body: ListView(children: [
+        buildButton(
+          title: "Svg Images  Screen",
+          whatToDoWhenPressed: (message) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ImagesScreen()));
+          },
+        ),
         buildButton(
           title: "Login  Screen",
           whatToDoWhenPressed: (message) {

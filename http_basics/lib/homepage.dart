@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as api;
 
-import 'post.dart';
+import 'model/post.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -32,8 +32,6 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
     fetchDataFromSerer();
   }
 
-
-
   postDataToTheServer() async {
     print("starting post reqeust");
     final url = "https://jsonplaceholder.typicode.com/posts";
@@ -57,24 +55,26 @@ class _HomepageState extends State<Homepage> with TickerProviderStateMixin {
     });
 
     print(response.body);
+
     responseFromServer = response.body;
 
     setState(() {});
 
-    List decodedReponse = json.decode(response.body); // List
+    List decodedReponse = json.decode(response.body); // List<Map>
 
-    
     postsData = decodedReponse;
 
     print(decodedReponse);
 
-    List<Post> tempList = decodedReponse.map<Post>((item) {
+    final tempList = decodedReponse.map<Post>((item) {
       final _post = Post.convertFromJson(item);
 
       return _post;
     }).toList();
 
-    postsList = Post.fromList(decodedReponse);
+    postsList = tempList;
+
+    // Post.fromList(decodedReponse);
 
     // tempList;
 

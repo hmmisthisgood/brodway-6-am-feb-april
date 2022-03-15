@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'navigation_screen.dart';
 
-
 void main() {
   runApp(OurApp());
 }
@@ -16,7 +15,11 @@ class OurApp extends StatelessWidget {
 
     return MaterialApp(
         title: "Our app",
-        theme: ThemeData(primarySwatch: Colors.pink),
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+          fontFamily: "Allura",
+          textTheme: TextTheme(headline5: TextStyle(color: Colors.black)),
+        ),
         home: NavigationScreen()
         // home=  "/" rooute
         //  OurHomepage(),

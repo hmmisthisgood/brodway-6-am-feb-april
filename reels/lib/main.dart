@@ -16,8 +16,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: Constants.appTitle,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            headline6: TextStyle(color: Colors.white, fontSize: 14),
+            headline5: TextStyle(color: Colors.white, fontSize: 16),
+            headline4: TextStyle(color: Colors.white, fontSize: 18),
+            headline3: TextStyle(color: Colors.white, fontSize: 20),
+            headline2: TextStyle(color: Colors.white, fontSize: 22),
+            headline1: TextStyle(color: Colors.white, fontSize: 24),
+            bodyText1: TextStyle(color: Colors.white, fontSize: 12),
+            bodyText2: TextStyle(color: Colors.white, fontSize: 10),
+          )),
       home: const HomeScreen(),
     );
   }

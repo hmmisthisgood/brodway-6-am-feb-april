@@ -11,29 +11,26 @@ dependencies:
   #  http and network
   http: 0.13.4
 
-
-
   #  ui and widgets
-  google_fonts: 2.3.1 
-  cached_network_image: 3.2.0 
+  google_fonts: 2.3.1
+  cached_network_image: 3.2.0
   flutter_svg: 1.0.3
   fluttertoast: ^8.0.9
 
-  # video 
+  # video
   video_player: ^2.3.0
-  better_player: 
 
-
+  # better_player:
 
   # utils
   form_field_validator: 1.1.0
 
-
-
   # persistence and db
 
-  shared_preferences: 
+  shared_preferences:
 
+  #  state manmagement
+  flutter_bloc: 8.0.1
 
   cupertino_icons: ^1.0.2
 

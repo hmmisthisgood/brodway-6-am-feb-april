@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:http/http.dart' as httpClient;
@@ -28,6 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   bool hasErrorOccurred = false;
 
+  int currentPage = 1;
+
   final videoUrl =
       "https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4";
 
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   fetchVideos() async {
     final url =
-        "https://pixabay.com/api/videos?key=${Constants.pixabayApiKey}&q=car";
+        "https://pixabay.com/api/videos?key=${Constants.pixabayApiKey}&q=car&per_page=5&page=$currentPage";
 
     final uri = Uri.parse(url);
     try {
@@ -76,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
       print("video fetcch complete");
 
       setState(() {
-        videosList = tempVideosList;
+        videosList = tempVideosList; // 2
+
         isLoading = false;
       });
     } catch (e, s) {
@@ -91,6 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
       showErrorMessage(e.toString());
       setState(() {});
     }
+  }
+
+  fetchMoreVideos() {
+    currentPage = currentPage++; //2
+    fetchVideos();
   }
 
   showErrorMessage(String message) {
@@ -203,6 +209,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return PageView.builder(
       scrollDirection: Axis.vertical,
       itemCount: videosList.length,
+      onPageChanged: (index) {
+        //
+        if (index == 2) {
+          /// Fetch the data from new pages
+          ///
+          fetchMoreVideos();
+        }
+      },
       itemBuilder: (context, index) {
         Video currentVideo = videosList[index];
 

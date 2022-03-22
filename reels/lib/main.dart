@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:reels/common/utils/constants.dart';
 
 import 'package:reels/feature/feed/ui/screen/home_screen.dart';
+import 'package:reels/feature/feed/ui/screen/home_screen_with_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(color: Colors.white, fontSize: 12),
             bodyText2: TextStyle(color: Colors.white, fontSize: 10),
           )),
-      home: const HomeScreen(),
+      home: const HomeScreenWithCubit(),
     );
   }
 }

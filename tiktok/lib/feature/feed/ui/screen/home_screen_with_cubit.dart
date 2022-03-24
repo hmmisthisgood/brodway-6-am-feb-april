@@ -16,7 +16,7 @@ class HomeScreenWithCubit extends StatefulWidget {
 }
 
 class _HomeScreenWithCubitState extends State<HomeScreenWithCubit> {
-  FeedCubit feedCubit = FeedCubit();
+  // FeedCubit feedCubit = FeedCubit();
 
   final videoUrl =
       "https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4";
@@ -27,20 +27,43 @@ class _HomeScreenWithCubitState extends State<HomeScreenWithCubit> {
 
     print("init state called");
 
+    final feedCubit = BlocProvider.of<FeedCubit>(context);
+
     feedCubit.fetchVideos();
 
     ///
   }
 
   Widget buildBodyWithCubit() {
-    return BlocBuilder(
-      bloc: feedCubit,
-      builder: (context, FeedState state) {
+    //  BlocConsumer is the combined form of BlocBuilder and BlocListener
+
+    return BlocConsumer<FeedCubit, FeedState>(
+      listener: (context, state) async {
+        if (state is FeedFetchedSuccessState) {
+          //
+          showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  child: Text("Yay , success data fetched",
+                      style: TextStyle(color: Colors.green, fontSize: 30)),
+                );
+              });
+
+          await Future.delayed(Duration(seconds: 4), () {
+            Navigator.pop(context);
+          });
+        }
+      },
+      // catches or listens the bloc's states and builds the ui
+
+      builder: (context, state) {
         print(state);
 
         if (state is FeedLoadingState || state is FeedInitialState) {
           return Center(child: CircularProgressIndicator());
         }
+
         if (state is FeedErrorState) {
           return Center(
             child: Column(
@@ -52,20 +75,26 @@ class _HomeScreenWithCubitState extends State<HomeScreenWithCubit> {
             ),
           );
         }
-        if (state is FeedFetchedSuccessState) {
-          return TikTokPageView(videoList: state.data, feedCubit: feedCubit);
+
+        if (state is FeedFetchedSuccessState || state is FeedLoadingMoreData) {
+          // 0,1,2,3
+          return new TikTokPageView(videoList: state.data);
         }
-        if (state is FeedLoadingMoreData) {
-          return Column(
-            children: [
-              Expanded(
-                child:
-                    TikTokPageView(videoList: state.data, feedCubit: feedCubit),
-              ),
-              CircularProgressIndicator()
-            ],
-          );
-        }
+
+        // if (state is FeedLoadingMoreData) {
+        //   /// 10 data items
+        //   /// 0
+        //   /// ,1,2,3
+        //   return Column(
+        //     children: [
+        //       Expanded(
+        //         child: new TikTokPageView(
+        //             videoList: state.data, feedCubit: feedCubit),
+        //       ),
+        //       CircularProgressIndicator()
+        //     ],
+        //   );
+        // }
 
         return Container();
       },
@@ -75,6 +104,9 @@ class _HomeScreenWithCubitState extends State<HomeScreenWithCubit> {
   @override
   Widget build(BuildContext context) {
     print("build called");
+    final theme = Theme.of(context);
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(body: buildBodyWithCubit());
   }
 }

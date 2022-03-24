@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
 
 import '../../model/video.dart';
 
 class TikTokPageView extends StatelessWidget {
-  const TikTokPageView(
-      {Key? key, required this.videoList, required this.feedCubit})
-      : super(key: key);
+  const TikTokPageView({Key? key, required this.videoList}) : super(key: key);
   final List<Video> videoList;
 
   Widget buildFollowButtons() {
@@ -67,12 +66,11 @@ class TikTokPageView extends StatelessWidget {
     );
   }
 
-  final FeedCubit feedCubit;
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height / 2;
     final theme = Theme.of(context);
+    final feedCubit = BlocProvider.of<FeedCubit>(context);
 
     return PageView.builder(
       scrollDirection: Axis.vertical,
@@ -101,7 +99,11 @@ class TikTokPageView extends StatelessWidget {
               //   videoUrl: currentVideo.availableResolutions.medium.url,
               // ),
 
-              Image.network(currentVideo.userImageUrl),
+              FadeInImage(
+                  image: NetworkImage(currentVideo.userImageUrl),
+                  placeholder: AssetImage(""),
+                  imageErrorBuilder: (context, image, error) =>
+                      Text("Image could not be loaded")),
 
               Align(
                   alignment: Alignment.center,

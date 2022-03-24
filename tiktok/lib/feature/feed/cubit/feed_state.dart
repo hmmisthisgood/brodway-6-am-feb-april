@@ -1,12 +1,19 @@
 import 'package:tiktok/feature/feed/model/video.dart';
 
-abstract class FeedState {}
+abstract class FeedState {
+  final data;
+  FeedState({this.data});
+}
 
 ///
 
-class FeedInitialState extends FeedState {}
+class FeedInitialState extends FeedState {
+  FeedInitialState();
+}
 
-class FeedLoadingState extends FeedState {}
+class FeedLoadingState extends FeedState {
+  FeedLoadingState();
+}
 
 class FeedErrorState extends FeedState {
   final String errorMessage;
@@ -16,10 +23,10 @@ class FeedErrorState extends FeedState {
 
 class FeedFetchedSuccessState extends FeedState {
   final List<Video> data;
-  FeedFetchedSuccessState({required this.data});
+  FeedFetchedSuccessState({required this.data}) : super(data: data);
 }
 
 class FeedLoadingMoreData extends FeedState {
   final List<Video> data;
-  FeedLoadingMoreData({required this.data});
+  FeedLoadingMoreData({required this.data}) : super(data: data);
 }

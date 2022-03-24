@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/common/utils/constants.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
 
-import 'package:tiktok/feature/feed/ui/screen/home_screen.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 
 void main() {

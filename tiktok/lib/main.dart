@@ -1,12 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tiktok/common/utils/constants.dart';
+import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
 
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 
-void main() {
+import 'feature/auth/ui/screen/login_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -16,7 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [BlocProvider(create: (_) => FeedCubit())],
+        providers: [
+          BlocProvider(create: (_) => FeedCubit()),
+          BlocProvider(create: (_) => AuthCubit()),
+        ],
         child: MaterialApp(
           title: Constants.appTitle,
           theme: ThemeData(
@@ -31,7 +41,7 @@ class MyApp extends StatelessWidget {
                 bodyText1: TextStyle(color: Colors.white, fontSize: 12),
                 bodyText2: TextStyle(color: Colors.white, fontSize: 10),
               )),
-          home: const HomeScreenWithCubit(),
+          home: const LoginScreen(),
         ));
   }
 }

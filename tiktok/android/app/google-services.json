@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1038651938670",
+    "project_id": "broadway-morning",
+    "storage_bucket": "broadway-morning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038651938670:android:598ffbe01cb3812aa8d37f",
+        "android_client_info": {
+          "package_name": "com.example.tiktok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038651938670-etlhspuq2soem6geirgihh191vpt0182.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tiktok",
+            "certificate_hash": "5531500007a8a767b80742f15922da38f1ad0ee6"
+          }
+        },
+        {
+          "client_id": "1038651938670-2e062h1c9rl2j20uk015b04jju6phe68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ7vQamsUQBIqXywhaTWTnnQVLqAnWfVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038651938670-2e062h1c9rl2j20uk015b04jju6phe68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

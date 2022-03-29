@@ -7,6 +7,7 @@ import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
 
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
+import 'package:tiktok/feature/onboarding/ui/screen/splash_screen.dart';
 
 import 'feature/auth/ui/screen/login_screen.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
                 bodyText1: TextStyle(color: Colors.white, fontSize: 12),
                 bodyText2: TextStyle(color: Colors.white, fontSize: 10),
               )),
-          home: const LoginScreen(),
+          home: const SplashScreen(),
         ));
   }
 }

@@ -28,6 +28,7 @@ class FeedCubit extends Cubit<FeedState> {
       final response = await httpClient.get(uri);
 
       final Map<String, dynamic> decodedBody = json.decode(response.body);
+
       final List hits = decodedBody["hits"];
 
       // final first = hits[0];

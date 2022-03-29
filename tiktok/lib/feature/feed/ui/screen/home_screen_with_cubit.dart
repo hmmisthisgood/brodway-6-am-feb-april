@@ -41,18 +41,18 @@ class _HomeScreenWithCubitState extends State<HomeScreenWithCubit> {
       listener: (context, state) async {
         if (state is FeedFetchedSuccessState) {
           //
-          showDialog(
-              context: context,
-              builder: (context) {
-                return Dialog(
-                  child: Text("Yay , success data fetched",
-                      style: TextStyle(color: Colors.green, fontSize: 30)),
-                );
-              });
+          // showDialog(
+          //     context: context,
+          //     builder: (context) {
+          //       return Dialog(
+          //         child: Text("Yay , success data fetched",
+          //             style: TextStyle(color: Colors.green, fontSize: 30)),
+          //       );
+          //     });
 
-          await Future.delayed(Duration(seconds: 4), () {
-            Navigator.pop(context);
-          });
+          // await Future.delayed(Duration(seconds: 4), () {
+          //   Navigator.pop(context);
+          // });
         }
       },
       // catches or listens the bloc's states and builds the ui

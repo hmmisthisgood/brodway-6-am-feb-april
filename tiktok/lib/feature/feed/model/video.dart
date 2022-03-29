@@ -1,5 +1,5 @@
 class Video {
-  final  String pageUrl, type, tags, pictureId, user, userImageUrl;
+  final String pageUrl, type, tags, pictureId, user, userImageUrl;
   final int id, duration, views, downloads, likes, comments, user_id;
 
   final VideoSizes availableResolutions;
@@ -39,11 +39,6 @@ class Video {
     );
   }
 }
-
-
-
-
-
 
 class VideoSizes {
   final VideoResolution tiny;

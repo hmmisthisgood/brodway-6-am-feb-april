@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:tiktok/feature/auth/ui/widget/auth_textfield.dart';
 
 import '../../cubit/auth_cubit.dart';
 
@@ -14,7 +15,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  final fullnameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -28,46 +29,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: EmailValidator(errorText: "Email must be valid"),
-                    decoration: InputDecoration(
-                      hintText: "Enter your email",
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
+              AuthTextField(
+                controller: fullnameController,
+                hintText: "Enter your fullname",
+                validator: EmailValidator(errorText: "Email must be valid"),
               ),
-              SizedBox(
-                height: 10,
+              SizedBox(height: 10),
+              AuthTextField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                hintText: "Enter your email",
+                validator: EmailValidator(errorText: "Email must be valid"),
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    controller: passwordController,
-                    obscureText: true,
-                    validator: MultiValidator([
-                      RequiredValidator(errorText: 'password is required'),
-                      MinLengthValidator(5,
-                          errorText: 'password must be at least 5 digits long'),
-                    ]),
-                    decoration: InputDecoration(
-                      hintText: "Enter your password",
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
+              SizedBox(height: 10),
+              AuthTextField(
+                controller: passwordController,
+                hintText: "Enter your password",
+                obscureText: true,
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'password is required'),
+                  MinLengthValidator(5,
+                      errorText: 'password must be at least 5 digits long'),
+                ]),
               ),
               Text("Forgot Password"),
               MaterialButton(

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:tiktok/common/utils/shared_pref.dart';
 import 'package:tiktok/feature/auth/cubit/auth_state.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -44,7 +45,17 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {}
   }
 
-  loginWithFacebook() {}
+  loginWithFacebook() async {
+    emit(AuthLoadingState(loadingMessage: "Facebook signing in"));
+    final LoginResult result = await FacebookAuth.instance.login(); //
+    if (result.status == LoginStatus.success) {
+      final AccessToken accessToken = result.accessToken!;
+    } else if (result.status == LoginStatus.cancelled) {
+      emit(AuthErrorState(errorMessage: "Login Cancelled"));
+    } else {
+      emit(AuthErrorState(errorMessage: "An error occurred while logging in"));
+    }
+  }
 
   loginWithEmail({required String email, required String password}) async {
     print("Login up");

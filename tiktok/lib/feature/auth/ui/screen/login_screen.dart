@@ -6,6 +6,7 @@ import 'package:tiktok/common/utils/shared_pref.dart';
 import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/auth/cubit/auth_state.dart';
 import 'package:tiktok/feature/auth/ui/screen/signup_screen.dart';
+import 'package:tiktok/feature/auth/ui/widget/auth_textfield.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,7 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SharedPref.clearAllData();
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Scaffold(
       appBar: AppBar(title: Text("Login")),
       body: BlocListener<AuthCubit, AuthState>(
@@ -75,51 +78,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.green),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          validator:
-                              EmailValidator(errorText: "Email must be valid"),
-                          decoration: InputDecoration(
-                            hintText: "Enter your email",
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
+                    AuthTextField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      hintText: "Enter your email",
+                      validator:
+                          EmailValidator(errorText: "Email must be valid"),
                     ),
-                    SizedBox(
-                      height: 10,
+                    SizedBox(height: 10),
+                    AuthTextField(
+                      controller: passwordController,
+                      hintText: "Enter your password",
+                      obscureText: true,
+                      validator: MultiValidator([
+                        RequiredValidator(errorText: 'password is required'),
+                        MinLengthValidator(5,
+                            errorText:
+                                'password must be at least 5 digits long'),
+                      ]),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.green),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextFormField(
-                          controller: passwordController,
-                          obscureText: true,
-                          validator: MultiValidator([
-                            RequiredValidator(
-                                errorText: 'password is required'),
-                            MinLengthValidator(5,
-                                errorText:
-                                    'password must be at least 5 digits long'),
-                          ]),
-                          decoration: InputDecoration(
-                            hintText: "Enter your password",
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
+                    Text(
+                      "Forgot Password",
+                      style: textTheme.headline6,
                     ),
-                    Text("Forgot Password"),
                     IgnorePointer(
                       ignoring: isLoading,
                       child: MaterialButton(
@@ -170,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: InkWell(
                         child: Text(
                           "Not registered yet? Sign Up",
-                          style: TextStyle(color: Colors.black, fontSize: 14),
+                          style: TextStyle(fontSize: 14),
                         ),
                         onTap: () {
                           Navigator.push(

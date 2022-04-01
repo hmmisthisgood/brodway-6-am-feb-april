@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:tiktok/common/utils/shared_pref.dart';
+import 'package:tiktok/common/utils/cutom_locale.dart';
 import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/auth/cubit/auth_state.dart';
 import 'package:tiktok/feature/auth/ui/screen/signup_screen.dart';
 import 'package:tiktok/feature/auth/ui/widget/auth_textfield.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,13 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool isLoading = false;
 
+  final text = "this";
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text("Login")),
+      appBar: AppBar(title: Text("login".tr())),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthLoadingState) {
@@ -170,9 +173,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         ///1
                         BlocProvider.of<AuthCubit>(context).loginWithGoogle();
+                        context.setLocale(CsutomLocale.french);
 
                         /// 2
-                        // context.read<AuthCubit>().loginWithGoogle();
+                        context.read<AuthCubit>().loginWithGoogle();
                       },
                       child: Text(
                         "Sign in with Google",
@@ -183,7 +187,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       minWidth: double.infinity,
                       color: Colors.pink,
                       onPressed: () {
-                        BlocProvider.of<AuthCubit>(context).loginWithFacebook();
+                        // BlocProvider.of<AuthCubit>(context).loginWithFacebook();
+
+                        context.setLocale(CsutomLocale.english);
                       },
                       child: Text(
                         "Sign in with Facebook",

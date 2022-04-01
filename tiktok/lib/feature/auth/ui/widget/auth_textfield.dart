@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/common/extension/theme_extension.dart';
 
 class AuthTextField extends StatelessWidget {
   const AuthTextField(
@@ -35,7 +36,7 @@ class AuthTextField extends StatelessWidget {
           controller: controller,
           obscureText: obscureText,
           validator: validator,
-          style: textTheme.headline5,
+          style: textTheme.h5(),
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: textTheme.headline6,

@@ -5,4 +5,7 @@ class Assets {
   static const appIcon = "assets/icons/app_icon.svg";
 
   /// images
+
+  /// translations
+  static const traslations = "assets/translations";
 }

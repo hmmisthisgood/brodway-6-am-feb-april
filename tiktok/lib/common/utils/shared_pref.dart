@@ -5,12 +5,14 @@
 // user data = string .
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// id, email, fullname, token, address,age , photo
 
 class SharedPref {
   static const _IsUserLoggedIN = "is_user_logged_in_the_app";
+  static const _ThemeMode = "theme_mode";
 
   static setHasUserLoggedIn(bool loggedInValue) async {
     SharedPreferences instance = await SharedPreferences.getInstance();
@@ -39,5 +41,26 @@ class SharedPref {
     SharedPreferences instance = await SharedPreferences.getInstance();
 
     await instance.clear();
+  }
+
+  static setThemeMode(String themeMode) async {
+    SharedPreferences instance = await SharedPreferences.getInstance();
+    instance.setString(_ThemeMode, themeMode);
+  }
+
+  static Future<ThemeMode> getThemeMode() async {
+    SharedPreferences instance = await SharedPreferences.getInstance();
+    final theme = instance.getString(_ThemeMode);
+
+    if (theme == null) {
+      return ThemeMode.light;
+    }
+
+    // ThemeMode.light , ThemeMode.dark
+
+    if (theme.toLowerCase() == ThemeMode.light.toString().toLowerCase()) {
+      return ThemeMode.light;
+    }
+    return ThemeMode.dark;
   }
 }

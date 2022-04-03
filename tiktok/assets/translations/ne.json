@@ -1,4 +1,11 @@
 {
     "app_name": "मेरो एप",
-    "login":"साइन इन गर्नुहोस्"
+    "login": "साइन इन गर्नुहोस्",
+    "Settings": "सेटिङहरू",
+    "loginScreen": {},
+    "homeScreen": {},
+    "settingsScreen": {},
+    "errorMessage": {
+        "loginSuccess": "लग इन सफल भयो। {} स्वागत छ!!"
+    }
 }

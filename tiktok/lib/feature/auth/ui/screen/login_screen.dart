@@ -10,6 +10,8 @@ import 'package:tiktok/feature/auth/ui/widget/auth_textfield.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../../../common/utils/locale_keys.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -49,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
           if (state is AuthSuccessState) {
             Fluttertoast.showToast(
-              msg: "Log in Sucessful. Welcome!!",
+              msg: LocaleKeys.loginSuccees.tr(),
               gravity: ToastGravity.BOTTOM,
               toastLength: Toast.LENGTH_LONG,
             );

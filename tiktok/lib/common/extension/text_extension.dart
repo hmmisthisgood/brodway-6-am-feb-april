@@ -1,5 +1,7 @@
 extension on String {
   String capitalize() {
+    String temp = this;
+
     return this;
   }
 }
@@ -8,4 +10,5 @@ extension on String {
 
 random() {
   var somthin = "".capitalize();
+  "".capitalize();
 }

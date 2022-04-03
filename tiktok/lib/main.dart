@@ -24,16 +24,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  final ThemeCubit themeCubit = ThemeCubit();
+  // final ThemeCubit themeCubit = ThemeCubit();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => FeedCubit()),
           BlocProvider(create: (_) => AuthCubit()),
+          BlocProvider(create: (_) => ThemeCubit())
         ],
-        child: BlocBuilder(
-          bloc: themeCubit,
+        child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, ThemeState state) {
             final _themeMode =
                 state is LightThemeState ? ThemeMode.light : ThemeMode.dark;

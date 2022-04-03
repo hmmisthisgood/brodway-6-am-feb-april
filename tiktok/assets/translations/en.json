@@ -1,4 +1,8 @@
 {
     "app_name": "My app",
-    "login": "Login"
+    "login": "Login",
+    "Settings": "Settings",
+    "errorMessage": {
+        "loginSuccess": "Log in Sucessful. Welcome!!"
+    }
 }

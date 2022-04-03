@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.grey.withOpacity(0.5),
+    scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       headline6: TextStyle(color: Colors.black, fontSize: 14), //h6
       headline5: TextStyle(color: Colors.black, fontSize: 16), //h5

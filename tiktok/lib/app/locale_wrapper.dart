@@ -4,9 +4,11 @@ import 'package:easy_localization/easy_localization.dart';
 import '../common/utils/assets.dart';
 import '../common/utils/cutom_locale.dart';
 
+//Locale
 class LocaleWrapper extends StatelessWidget {
   const LocaleWrapper({Key? key, required this.child}) : super(key: key);
   final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(

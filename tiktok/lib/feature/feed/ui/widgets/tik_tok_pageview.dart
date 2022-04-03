@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
+import 'package:tiktok/feature/settings/ui/screen/settings_screen.dart';
 
 import '../../model/video.dart';
 
@@ -125,7 +126,12 @@ class TikTokPageView extends StatelessWidget {
               Positioned(
                 left: 0,
                 bottom: 10,
-                child: buildUsernameAndCaptions(theme),
+                child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => SettingScreen()));
+                    },
+                    child: buildUsernameAndCaptions(theme)),
               )
             ],
           ),

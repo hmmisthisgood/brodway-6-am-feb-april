@@ -17,11 +17,13 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   setLightTheme() async {
     SharedPref.setThemeMode(ThemeMode.light.toString());
+
     emit(LightThemeState());
   }
 
   setDarkTheme() async {
     SharedPref.setThemeMode(ThemeMode.dark.toString());
+
     emit(DarkThemeState());
   }
 }

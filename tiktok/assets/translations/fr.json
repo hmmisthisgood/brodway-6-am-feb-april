@@ -1,4 +1,9 @@
 {
     "app_name": "mon application",
-    "login": "s'identifier"
+    "login": "s'identifier",
+    "Settings": "réglages",
+    "errorMessage": {
+        "loginSuccess": "Log in Sucessful. Welcome!!"
+    }
+
 }

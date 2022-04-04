@@ -47,10 +47,13 @@ dependencies:
   # utils
   form_field_validator: 1.1.0
   easy_localization: ^3.0.0
+  path_provider: 2.0.9
+  jiffy: 5.0.0
 
   # persistence and db
 
   shared_preferences:
+  sqflite: 2.0.2
 
   #  state manmagement
   flutter_bloc: 8.0.1

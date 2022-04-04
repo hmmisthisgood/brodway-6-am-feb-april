@@ -11,20 +11,23 @@ import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
 import 'package:tiktok/feature/onboarding/ui/screen/splash_screen.dart';
 import 'package:tiktok/feature/settings/cubit/theme_cubit.dart';
 
+import 'common/utils/db_service.dart';
+import 'feature/auth/ui/screen/add_users.dart';
 import 'feature/settings/cubit/theme_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  await DbService.instance.init();
   runApp(LocaleWrapper(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  // final ThemeCubit themeCubit = ThemeCubit();
+  final ThemeCubit themeCubit = ThemeCubit();
+  final ThemeCubit themeCubit2 = ThemeCubit();
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,8 @@ class MyApp extends StatelessWidget {
             final _themeMode =
                 state is LightThemeState ? ThemeMode.light : ThemeMode.dark;
 
+            _themeMode.hashCode;
+
             return MaterialApp(
               title: Constants.appTitle,
               darkTheme: CustomTheme.darkTheme,
@@ -49,7 +54,7 @@ class MyApp extends StatelessWidget {
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
 
-              home: const SplashScreen(),
+              home: const Addusers(),
             );
           },
         ));

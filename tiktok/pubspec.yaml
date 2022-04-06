@@ -38,7 +38,7 @@ dependencies:
   cached_network_image: 3.2.0
   flutter_svg: 1.0.3
   fluttertoast: ^8.0.9
-
+  flutter_custom_clippers: ^2.0.0
   # video
   video_player: ^2.3.0
 

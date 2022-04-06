@@ -1,20 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tiktok/app/locale_wrapper.dart';
 import 'package:tiktok/app/theme.dart';
-
+import 'package:tiktok/common/navigation/custom_navigation.dart';
 import 'package:tiktok/common/utils/constants.dart';
 import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
-
-import 'package:tiktok/feature/onboarding/ui/screen/splash_screen.dart';
 import 'package:tiktok/feature/settings/cubit/theme_cubit.dart';
 
+import 'common/navigation/custom_route_generator.dart';
+import 'common/navigation/routes.dart';
 import 'common/utils/db_service.dart';
-import 'feature/auth/ui/screen/add_users.dart';
 import 'feature/settings/cubit/theme_state.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,8 +52,9 @@ class MyApp extends StatelessWidget {
               locale: context.locale,
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
-
-              home: const Addusers(),
+              navigatorKey: Nav.navigatorKey,
+              onGenerateRoute: customRouteGenerator,
+              initialRoute: Routes.randomRoute,
             );
           },
         ));

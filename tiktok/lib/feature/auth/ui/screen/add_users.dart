@@ -12,11 +12,12 @@ class Addusers extends StatefulWidget {
 
 class _AddusersState extends State<Addusers> {
   List users = [];
-
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final txt = Theme.of(context).textTheme;
     return Scaffold(
+      key: scaffoldKey,
       body: SafeArea(
         child: Column(
           children: [

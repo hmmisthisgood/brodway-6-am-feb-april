@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tiktok/common/navigation/routes.dart';
 import 'package:tiktok/common/utils/assets.dart';
 import 'package:tiktok/common/utils/shared_pref.dart';
-import 'package:tiktok/feature/auth/ui/screen/login_screen.dart';
-import 'package:tiktok/feature/feed/ui/screen/home_screen.dart';
-import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
+
+import '../../../../common/navigation/custom_navigation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,14 +28,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
     await Future.delayed(Duration(milliseconds: 2000), () {
       if (isLoggedIn) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => HomeScreenWithCubit()));
+        Navigator.pushReplacementNamed(context, Routes.homeRoute);
+
         return;
       }
+      // Navigator.pushNamed(context, "/looooogin");
+      // Navigator.pushReplacementNamed(context, "/login");
+      // Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
 
       /// if not logged in
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => LoginScreen()));
+      Navigator.pushReplacementNamed(context, Routes.loginRoute);
     });
   }
 

@@ -12,6 +12,8 @@ class StreamUi extends StatefulWidget {
 class _StreamUiState extends State<StreamUi> {
   StreamController<int> timeController = StreamController.broadcast();
   int currentValue = 0;
+  Timer? timer;
+
   @override
   void initState() {
     super.initState();
@@ -19,11 +21,18 @@ class _StreamUiState extends State<StreamUi> {
   }
 
   addValuesInStream() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       currentValue++;
 
       timeController.add(currentValue);
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    timer?.cancel();
   }
 
   @override

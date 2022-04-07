@@ -31,6 +31,13 @@ class _LoginScreenState extends State<LoginScreen> {
   ValueNotifier<bool> hidePassword = ValueNotifier(true);
 
   @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;

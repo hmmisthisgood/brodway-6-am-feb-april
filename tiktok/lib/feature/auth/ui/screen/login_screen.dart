@@ -28,11 +28,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final text = "this";
 
+  ValueNotifier<bool> hidePassword = ValueNotifier(true);
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-
+    print("build");
     return Scaffold(
       appBar: AppBar(title: Text("login".tr())),
       body: BlocListener<AuthCubit, AuthState>(
@@ -91,17 +93,32 @@ class _LoginScreenState extends State<LoginScreen> {
                           EmailValidator(errorText: "Email must be valid"),
                     ),
                     SizedBox(height: 10),
-                    AuthTextField(
-                      controller: passwordController,
-                      hintText: "Enter your password",
-                      obscureText: true,
-                      validator: MultiValidator([
-                        RequiredValidator(errorText: 'password is required'),
-                        MinLengthValidator(5,
-                            errorText:
-                                'password must be at least 5 digits long'),
-                      ]),
-                    ),
+                    ValueListenableBuilder<bool>(
+                        valueListenable: hidePassword,
+                        builder: (context, isHidingPassword, child) {
+                          return AuthTextField(
+                            controller: passwordController,
+                            hintText: "Enter your password",
+                            obscureText: isHidingPassword,
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                hidePassword.value = !hidePassword.value;
+                              },
+                              child: Icon(
+                                isHidingPassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                            ),
+                            validator: MultiValidator([
+                              RequiredValidator(
+                                  errorText: 'password is required'),
+                              MinLengthValidator(5,
+                                  errorText:
+                                      'password must be at least 5 digits long'),
+                            ]),
+                          );
+                        }),
                     Text(
                       "Forgot Password",
                       style: textTheme.headline6,

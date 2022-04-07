@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     await Future.delayed(Duration(milliseconds: 2000), () {
       if (isLoggedIn) {
-        Navigator.pushReplacementNamed(context, Routes.homeRoute);
+        Navigator.pushReplacementNamed(context, Routes.streamScreen);
 
         return;
       }
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
 
       /// if not logged in
-      Navigator.pushReplacementNamed(context, Routes.loginRoute);
+      Navigator.pushReplacementNamed(context, Routes.randomScreen);
     });
   }
 

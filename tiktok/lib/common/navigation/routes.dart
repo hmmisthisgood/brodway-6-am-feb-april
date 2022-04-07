@@ -3,4 +3,8 @@ class Routes {
   static const splashRoute = "/splash";
   static const homeRoute = "/home";
   static const randomRoute = "/random";
+  static const vListableRoute = "/valueListenable";
+  static const listRoute = "/listRoute";
+  static const randomScreen = "/radomRoute";
+  static const streamScreen = "/stream";
 }

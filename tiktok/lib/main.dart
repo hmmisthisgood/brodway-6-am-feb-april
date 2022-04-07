@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
               supportedLocales: context.supportedLocales,
               navigatorKey: Nav.navigatorKey,
               onGenerateRoute: customRouteGenerator,
-              initialRoute: Routes.randomRoute,
+              initialRoute: Routes.vListableRoute,
             );
           },
         ));

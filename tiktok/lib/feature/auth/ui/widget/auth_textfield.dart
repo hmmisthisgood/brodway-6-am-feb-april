@@ -9,6 +9,7 @@ class AuthTextField extends StatelessWidget {
       required this.hintText,
       this.keyboardType,
       this.obscureText = false,
+      this.suffixIcon,
       this.label})
       : super(key: key);
 
@@ -20,7 +21,7 @@ class AuthTextField extends StatelessWidget {
   final TextInputType? keyboardType;
 
   final bool obscureText;
-
+  final Widget? suffixIcon;
   final String? label;
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,10 @@ class AuthTextField extends StatelessWidget {
           validator: validator,
           style: textTheme.h5(),
           decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: textTheme.headline6,
-            border: InputBorder.none,
-          ),
+              hintText: hintText,
+              hintStyle: textTheme.headline6,
+              border: InputBorder.none,
+              suffix: suffixIcon),
         ),
       ),
     );

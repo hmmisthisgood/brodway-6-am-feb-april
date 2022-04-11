@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tiktok/common/navigation/navigation_animation.dart';
 import 'package:tiktok/common/navigation/routes.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 import 'package:tiktok/feature/random/ui/clipper.dart';
@@ -47,7 +48,7 @@ Route customRouteGenerator(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => ProviderScreen());
 
     case Routes.hero1:
-      return MaterialPageRoute(builder: (_) => Hero1());
+      return CustomRoute.upRoute(child: Hero1());
 
     default:
       return CupertinoPageRoute(builder: (_) => SplashScreen());

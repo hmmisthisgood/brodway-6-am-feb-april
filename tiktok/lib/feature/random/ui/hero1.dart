@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tiktok/common/navigation/navigation_animation.dart';
+import 'package:tiktok/feature/auth/ui/screen/login_screen.dart';
+import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 import 'package:tiktok/feature/random/ui/hero2.dart';
 
 class Hero1 extends StatelessWidget {
@@ -12,7 +16,8 @@ class Hero1 extends StatelessWidget {
       body: Column(children: [
         InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) => Hero2()));
+            Navigator.push(
+                context, CustomRoute.fadeRoute(child: LoginScreen()));
           },
           child: Hero(
             tag: "Hero animation",

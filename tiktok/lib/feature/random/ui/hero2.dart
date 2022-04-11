@@ -9,13 +9,10 @@ class Hero2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-        Hero(
-          tag: "Hero animation",
-          child: Image.network(
-            image,
-            height: 300,
-            width: 300,
-          ),
+        Image.network(
+          image,
+          height: 300,
+          width: 300,
         ),
       ]),
     );

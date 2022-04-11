@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok/common/utils/cutom_locale.dart';
 import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/auth/cubit/auth_state.dart';
+import 'package:tiktok/feature/auth/provider/auth_provider.dart';
 import 'package:tiktok/feature/auth/ui/screen/signup_screen.dart';
 import 'package:tiktok/feature/auth/ui/widget/auth_textfield.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
@@ -41,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    print("build");
+
     return Scaffold(
       appBar: AppBar(title: Text("login".tr())),
       body: BlocListener<AuthCubit, AuthState>(

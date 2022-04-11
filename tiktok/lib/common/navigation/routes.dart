@@ -7,4 +7,6 @@ class Routes {
   static const listRoute = "/listRoute";
   static const randomScreen = "/radomRoute";
   static const streamScreen = "/stream";
+  static const providerScreen = "/provider";
+  static const hero1 = "/hero1";
 }

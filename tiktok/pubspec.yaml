@@ -57,6 +57,8 @@ dependencies:
 
   #  state manmagement
   flutter_bloc: 8.0.1
+  provider: 
+  get:
 
   flutter_lints: ^1.0.0
   cupertino_icons: ^1.0.2

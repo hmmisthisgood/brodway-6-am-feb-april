@@ -26,19 +26,21 @@ class _SplashScreenState extends State<SplashScreen> {
 
     print("isLoggedIn: $isLoggedIn");
 
-    await Future.delayed(Duration(milliseconds: 2000), () {
-      if (isLoggedIn) {
-        Navigator.pushReplacementNamed(context, Routes.streamScreen);
+    // await Future.delayed(Duration(milliseconds: 2000), () {
+    //   if (isLoggedIn) {
+    //     Navigator.pushReplacementNamed(context, Routes.hero1);
 
-        return;
-      }
-      // Navigator.pushNamed(context, "/looooogin");
-      // Navigator.pushReplacementNamed(context, "/login");
-      // Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
+    //     return;
+    //   }
+    //   // Navigator.pushNamed(context, "/looooogin");
+    //   // Navigator.pushReplacementNamed(context, "/login");
+    //   // Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => false);
 
-      /// if not logged in
-      Navigator.pushReplacementNamed(context, Routes.randomScreen);
-    });
+    //   /// if not logged in
+    //   Navigator.pushReplacementNamed(context, Routes.hero1);
+    // });
+
+    Navigator.pushReplacementNamed(context, Routes.hero1);
   }
 
   @override

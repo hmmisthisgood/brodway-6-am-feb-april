@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:tiktok/common/navigation/routes.dart';
 import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 import 'package:tiktok/feature/random/ui/clipper.dart';
+import 'package:tiktok/feature/random/ui/hero1.dart';
 import 'package:tiktok/feature/random/ui/listview.dart';
+import 'package:tiktok/feature/random/ui/screen_with_provider.dart';
 import 'package:tiktok/feature/random/ui/stream_builder_widget.dart';
 import 'package:tiktok/feature/random/ui/value_listnable.dart';
 
@@ -40,6 +42,12 @@ Route customRouteGenerator(RouteSettings settings) {
 
     case Routes.streamScreen:
       return MaterialPageRoute(builder: (_) => StreamUi());
+
+    case Routes.providerScreen:
+      return MaterialPageRoute(builder: (_) => ProviderScreen());
+
+    case Routes.hero1:
+      return MaterialPageRoute(builder: (_) => Hero1());
 
     default:
       return CupertinoPageRoute(builder: (_) => SplashScreen());

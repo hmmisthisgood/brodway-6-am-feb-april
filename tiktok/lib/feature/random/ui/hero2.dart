@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Hero2 extends StatelessWidget {
-  const Hero2({Key? key}) : super(key: key);
+  const Hero2({Key? key, required this.image, required this.tag})
+      : super(key: key);
 
-  final image =
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
+  final String tag;
+  final String image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-        Image.network(
-          image,
-          height: 300,
-          width: 300,
+        Hero(
+          tag: tag,
+          child: Image.network(
+            image,
+            height: 300,
+            width: 300,
+          ),
         ),
       ]),
     );

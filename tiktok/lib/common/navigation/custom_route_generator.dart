@@ -6,12 +6,14 @@ import 'package:tiktok/feature/feed/ui/screen/home_screen_with_cubit.dart';
 import 'package:tiktok/feature/random/ui/clipper.dart';
 import 'package:tiktok/feature/random/ui/hero1.dart';
 import 'package:tiktok/feature/random/ui/listview.dart';
+import 'package:tiktok/feature/random/ui/lottie_screen.dart';
 import 'package:tiktok/feature/random/ui/screen_with_provider.dart';
 import 'package:tiktok/feature/random/ui/stream_builder_widget.dart';
 import 'package:tiktok/feature/random/ui/value_listnable.dart';
 
 import '../../feature/auth/ui/screen/login_screen.dart';
 import '../../feature/onboarding/ui/screen/splash_screen.dart';
+import '../../feature/random/ui/hero2.dart';
 import '../../feature/random/ui/random.dart';
 
 Route customRouteGenerator(RouteSettings settings) {
@@ -50,6 +52,12 @@ Route customRouteGenerator(RouteSettings settings) {
     case Routes.hero1:
       return CustomRoute.upRoute(child: Hero1());
 
+    case Routes.hero2:
+      final args = settings.arguments as List;
+
+      return CustomRoute.fadeRoute(child: Hero2(tag: args[1], image: args[0]));
+    case Routes.lottieScreen:
+      return CustomRoute.fadeRoute(child: LottieScreen());
     default:
       return CupertinoPageRoute(builder: (_) => SplashScreen());
   }

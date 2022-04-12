@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
                   supportedLocales: context.supportedLocales,
                   navigatorKey: Nav.navigatorKey,
                   onGenerateRoute: customRouteGenerator,
-                  initialRoute: Routes.vListableRoute,
+                  initialRoute: Routes.lottieScreen,
                 );
               },
             )));

@@ -8,4 +8,8 @@ class Assets {
 
   /// translations
   static const traslations = "assets/translations";
+
+  /// animations
+  static const messageAnimation =
+      "assets/animations/message_flying_lottie.json";
 }

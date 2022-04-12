@@ -24,6 +24,16 @@ class _SplashScreenState extends State<SplashScreen> {
   checkLogInStatusAndNavigate() async {
     bool isLoggedIn = await SharedPref.hasUserLoggedIn();
 
+    // Nav nav = Nav();
+
+    // Nav.push();
+
+    // Nav().push();
+
+    // Nav().push();
+
+    // Nav().push();
+
     print("isLoggedIn: $isLoggedIn");
 
     // await Future.delayed(Duration(milliseconds: 2000), () {
@@ -40,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //   Navigator.pushReplacementNamed(context, Routes.hero1);
     // });
 
-    Navigator.pushReplacementNamed(context, Routes.hero1);
+    Navigator.pushReplacementNamed(context, Routes.lottieScreen);
   }
 
   @override

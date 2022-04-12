@@ -9,7 +9,7 @@ class Nav {
     navigatorKey.currentState!.pushNamed(routeName, arguments: arguments);
   }
 
-  push(Route route) {
+  static  push(Route route) {
     navigatorKey.currentState!.push(route);
   }
 }

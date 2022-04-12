@@ -39,6 +39,8 @@ dependencies:
   flutter_svg: 1.0.3
   fluttertoast: ^8.0.9
   flutter_custom_clippers: ^2.0.0
+  lottie: 1.2.2
+
   # video
   video_player: ^2.3.0
 
@@ -57,16 +59,16 @@ dependencies:
 
   #  state manmagement
   flutter_bloc: 8.0.1
-  provider: 
+  provider:
   get:
 
   flutter_lints: ^1.0.0
   cupertino_icons: ^1.0.2
 
-#  firebase
-  firebase_core: 
+  #  firebase
+  firebase_core:
   firebase_auth: ^3.3.11
-  google_sign_in: 
+  google_sign_in:
   flutter_facebook_auth:
   firebase_messaging: ^11.2.12
 
@@ -96,6 +98,7 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/translations/
+    - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

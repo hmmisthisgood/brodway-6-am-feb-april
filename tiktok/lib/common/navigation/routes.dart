@@ -9,4 +9,6 @@ class Routes {
   static const streamScreen = "/stream";
   static const providerScreen = "/provider";
   static const hero1 = "/hero1";
+  static const hero2 = "/hero2";
+  static const lottieScreen = "/lottieScreen";
 }

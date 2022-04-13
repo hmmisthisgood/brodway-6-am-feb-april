@@ -15,7 +15,7 @@ class ProviderScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // provider.updateCount();
+          provider.updateCount();
           // provider.googleSignIn();
           Get.snackbar(
             "this is a snackbar",

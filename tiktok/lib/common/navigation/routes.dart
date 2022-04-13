@@ -11,4 +11,5 @@ class Routes {
   static const hero1 = "/hero1";
   static const hero2 = "/hero2";
   static const lottieScreen = "/lottieScreen";
+  static const randomUi = "/randomui";
 }

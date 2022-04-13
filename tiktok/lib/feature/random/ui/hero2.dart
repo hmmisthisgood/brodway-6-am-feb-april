@@ -10,6 +10,7 @@ class Hero2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber,
       body: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
         Hero(
           tag: tag,

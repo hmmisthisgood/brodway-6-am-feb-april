@@ -10,11 +10,13 @@ import 'package:tiktok/common/utils/constants.dart';
 import 'package:tiktok/feature/auth/cubit/auth_cubit.dart';
 import 'package:tiktok/feature/auth/provider/auth_provider.dart';
 import 'package:tiktok/feature/feed/cubit/feed_cubit.dart';
+import 'package:tiktok/feature/random/ui/random_ui.dart';
 import 'package:tiktok/feature/settings/cubit/theme_cubit.dart';
 
 import 'common/navigation/custom_route_generator.dart';
 import 'common/navigation/routes.dart';
 import 'common/utils/db_service.dart';
+import 'feature/random/ui/animated_screen.dart';
 import 'feature/settings/cubit/theme_state.dart';
 
 void main() async {
@@ -59,7 +61,8 @@ class MyApp extends StatelessWidget {
                   supportedLocales: context.supportedLocales,
                   navigatorKey: Nav.navigatorKey,
                   onGenerateRoute: customRouteGenerator,
-                  initialRoute: Routes.lottieScreen,
+                  // initialRoute: Routes.lottieScreen,
+                  home: RandomUi(),
                 );
               },
             )));

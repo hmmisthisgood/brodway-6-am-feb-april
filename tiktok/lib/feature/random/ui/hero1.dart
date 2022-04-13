@@ -16,7 +16,7 @@ class Hero1 extends StatelessWidget {
       body: Column(children: [
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, Routes.hero2, arguments: [11, 11]);
+            Navigator.pushNamed(context, Routes.hero2, arguments: [image, tag]);
 
             // Navigator.push(
             //   context,

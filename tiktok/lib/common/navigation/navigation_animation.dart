@@ -26,8 +26,8 @@ class CustomRoute {
         pageBuilder: (context, first, seconds) {
           return child;
         },
-        transitionDuration: Duration(milliseconds: 5000),
-        reverseTransitionDuration: Duration(milliseconds: 5000),
+        transitionDuration: Duration(milliseconds: 2000),
+        reverseTransitionDuration: Duration(milliseconds: 2000),
         transitionsBuilder: (context, first, second, child) {
           final end = 1.0;
           final begin = 0.0; // (0.0,0.0)

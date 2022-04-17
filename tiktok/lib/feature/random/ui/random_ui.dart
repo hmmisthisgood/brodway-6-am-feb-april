@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/feature/random/ui/animated_screen.dart';
+import 'package:tiktok/feature/random/ui/animation_with_controller.dart';
 import 'package:tiktok/feature/random/ui/clipper.dart';
 import 'package:tiktok/feature/random/ui/hero1.dart';
 import 'package:tiktok/feature/random/ui/lottie_screen.dart';
 import 'package:tiktok/feature/random/ui/screen_with_provider.dart';
+import 'package:tiktok/feature/random/ui/transform_widget.dart';
 import 'package:tiktok/feature/random/ui/value_listnable.dart';
 
 import '../../../common/navigation/custom_navigation.dart';
@@ -22,6 +24,11 @@ class RandomUi extends StatelessWidget {
     {"screen": "Provider usage", "widget": ProviderScreen()},
     {"screen": "Stream builder", "widget": StreamUi()},
     {"screen": "Value listenable builder", "widget": ValueListenableWidget()},
+    {
+      "screen": "Animation with custom controller",
+      "widget": AnimWithController()
+    },
+    {"screen": "Transform screen", "widget": TransformWidget()}
   ];
 
   @override

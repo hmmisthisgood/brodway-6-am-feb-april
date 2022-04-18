@@ -27,6 +27,15 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 apply plugin: 'com.google.gms.google-services'
 
+
+def key= new Properties()
+
+def keyPropertiesFile= rootProject.file("key.properties")
+if(keyPropertiesFile.exists()){
+    key.load(new FileInputStream(keyPropertiesFile))
+}
+
+
 android {
     compileSdkVersion flutter.compileSdkVersion
 
@@ -45,19 +54,25 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.tiktok"
+        applicationId "com.ourapp"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
-
-    buildTypes {
+    
+    signingConfigs{
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+        storePassword key["storePassword"]
+        keyPassword key["keyPassword"]
+        keyAlias key["keyAlias"]
+        storeFile key["storeFile"]
         }
+    }
+    buildTypes {
+      release{
+          signingConfig signingConfigs.release
+      }
     }
 }
 
